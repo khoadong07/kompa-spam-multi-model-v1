@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  spamsocket-server:
+    build:
+      context: ./socket_server
+    container_name: spam_socket_server
+    ports:
+      - "5001:5001"
+    depends_on:
+      - inference-server
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: always
+
+  inference-server:
+    build:
+      context: ./inference_server
+    container_name: spam_inference_server
+    ports:
+      - "8989:8989"
+    volumes:
+      - ./models:/app/models
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: always
