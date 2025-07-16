@@ -69,7 +69,10 @@ async def handle_predict(sid, payload):
     results = await asyncio.gather(*tasks)
 
     print(f"📤 Emitting 'result' to {sid}")
-    await sio.emit("result", results, to=sid)
+    await sio.emit("result", {
+        "category": category,
+        "results": results
+    }, to=sid)
 
 async def process_item(item, text, category):
     try:
