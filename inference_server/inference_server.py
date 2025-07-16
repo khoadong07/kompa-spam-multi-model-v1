@@ -126,4 +126,4 @@ from litserve import LitServer
 if __name__ == "__main__":
     api = SpamLitAPI()
     server = LitServer(api, accelerator="cpu", devices=0) 
-    server.run(host="0.0.0.0", port=8989, num_api_servers=8, log_level="info")
+    server.run(host="0.0.0.0", port=8989, num_api_servers=16, log_level="info")
