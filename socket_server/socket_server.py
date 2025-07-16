@@ -10,7 +10,7 @@ sio = socketio.AsyncServer(async_mode="asgi", cors_allowed_origins="*")
 app = FastAPI()
 asgi_app = socketio.ASGIApp(sio, app)
 
-INFER_URL = "http://0.0.0.0:8989/predict"
+INFER_URL = "http://148.113.218.245:8989/predict"
 
 OUTPUT_FIELDS = [
     "id", "topic", "topic_id", "title", "content", "description",
@@ -90,4 +90,4 @@ async def process_item(item, text, category):
     return {k: merged.get(k, None) for k in OUTPUT_FIELDS}
 
 if __name__ == "__main__":
-    uvicorn.run(asgi_app, host="0.0.0.0", port=5001, workers=1)
+    uvicorn.run(asgi_app, host="0.0.0.0", port=5002, workers=1)
