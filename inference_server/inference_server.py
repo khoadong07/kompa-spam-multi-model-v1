@@ -6,59 +6,56 @@ import os
 LOCAL_MODEL_DIR = "./models"
 
 CATEGORY_MODEL_MAP = {
-    "retail": {
-        "repo_id": "Khoa/kompa-spam-filter-retail-update-0625",
-        "local_path": os.path.join(LOCAL_MODEL_DIR, "kompa-spam-filter-retail-update-0625")
+    "healthcare_insurance": {
+        "repo_id": "Khoa/kompa-spam-filter-healthcare-insurance-update-0525",
+        "local_path": os.path.join(LOCAL_MODEL_DIR, "kompa-spam-filter-healthcare-insurance-update-0525")
+    },
+    "energy_fuels": {
+        "repo_id": "Khoa/kompa-spam-filter-energy-fuels-update-0625",
+        "local_path": os.path.join(LOCAL_MODEL_DIR, "kompa-spam-filter-energy-fuels-update-0625")
+    },
+    "electronic": {
+        "repo_id": "Khoa/kompa-spam-filter-electronic-update-0625",
+        "local_path": os.path.join(LOCAL_MODEL_DIR, "kompa-spam-filter-electronic-update-0625")
+    },
+    "fmcg": {
+        "repo_id": "Khoa/kompa-spam-filter-fmcg-update-0625",
+        "local_path": os.path.join(LOCAL_MODEL_DIR, "kompa-spam-filter-fmcg-update-0625")
+    },
+    "fnb": {
+        "repo_id": "Khoa/kompa-spam-filter-fnb-update-0625",
+        "local_path": os.path.join(LOCAL_MODEL_DIR, "kompa-spam-filter-fnb-update-0625")
+    },
+    "logistic_delivery": {
+        "repo_id": "Khoa/kompa-spam-filter-logistics-delivery-update-0625",
+        "local_path": os.path.join(LOCAL_MODEL_DIR, "kompa-spam-filter-logistics-delivery-update-0625")
+    },
+    "bank": {
+        "repo_id": "Khoa/kompa-spam-filter-bank-update-0625",
+        "local_path": os.path.join(LOCAL_MODEL_DIR, "kompa-spam-filter-bank-update-0625")
+    },
+    "finance": {
+        "repo_id": "Khoa/kompa-spam-filter-finance-update-0525",
+        "local_path": os.path.join(LOCAL_MODEL_DIR, "kompa-spam-filter-finance-update-0525")
+    },
+    "ewallet": {
+        "repo_id": "Khoa/kompa-spam-filter-e-wallet-update-0625",
+        "local_path": os.path.join(LOCAL_MODEL_DIR, "kompa-spam-filter-e-wallet-update-0625")
+    },
+    "investment": {
+        "repo_id": "Khoa/kompa-spam-filter-investment-update-0625",
+        "local_path": os.path.join(LOCAL_MODEL_DIR, "kompa-spam-filter-investment-update-0625")
     },
     "real_estate": {
         "repo_id": "Khoa/kompa-spam-filter-real-estate-update-0525",
         "local_path": os.path.join(LOCAL_MODEL_DIR, "kompa-spam-filter-real-estate-update-0525")
     },
-    "technology_motorbike_food": {
-        "repo_id": "Khoa/kompa-spam-filter-technology-motorbike-food-delivery-update-0625",
-        "local_path": os.path.join(LOCAL_MODEL_DIR, "kompa-spam-filter-technology-motorbike-food-delivery-update-0625")
-    },
-    "ecommerce": {
-        "repo_id": "Khoa/kompa-spam-filter-e-commerce-update-0625",
-        "local_path": os.path.join(LOCAL_MODEL_DIR, "kompa-spam-filter-e-commerce-update-0625")
-    },
-    "home_living": {
-        "repo_id": "Khoa/kompa-spam-filter-home-living-update-0625",
-        "local_path": os.path.join(LOCAL_MODEL_DIR, "kompa-spam-filter-home-living-update-0625")
-    },
-    "automotive": {
-        "repo_id": "Khoa/kompa-spam-filter-automotive-update-0625",
-        "local_path": os.path.join(LOCAL_MODEL_DIR, "kompa-spam-filter-automotive-update-0625")
-    },
-    "software_technology": {
-        "repo_id": "Khoa/kompa-spam-filter-software-technology-update-0625",
-        "local_path": os.path.join(LOCAL_MODEL_DIR, "kompa-spam-filter-software-technology-update-0625")
-    },
-    "entertainment_television": {
-        "repo_id": "Khoa/kompa-spam-filter-entertainment-television-update-0625",
-        "local_path": os.path.join(LOCAL_MODEL_DIR, "kompa-spam-filter-entertainment-television-update-0625")
-    },
-    "telecomunication_internet": {
-        "repo_id": "Khoa/kompa-spam-filter-telecomunication-internet-update-0625",
-        "local_path": os.path.join(LOCAL_MODEL_DIR, "kompa-spam-filter-telecomunication-internet-update-0625")
-    },
-    "hospital": {
-        "repo_id": "Khoa/kompa-spam-filter-hospital-update-0625",
-        "local_path": os.path.join(LOCAL_MODEL_DIR, "kompa-spam-filter-hospital-update-0625")
-    },
-    "corp": {
-        "repo_id": "Khoa/kompa-spam-filter-corp-update-0625",
-        "local_path": os.path.join(LOCAL_MODEL_DIR, "kompa-spam-filter-corp-update-0625")
-    },
-    "insurance": {
-        "repo_id": "Khoa/kompa-spam-filter-insurance-update-0625",
-        "local_path": os.path.join(LOCAL_MODEL_DIR, "kompa-spam-filter-insurance-update-0625")
-    },
-    "logistics": {
-        "repo_id": "Khoa/kompa-spam-filter-logistics-update-0625",
-        "local_path": os.path.join(LOCAL_MODEL_DIR, "kompa-spam-filter-logistics-update-0625")
+    "education": {
+        "repo_id": "Khoa/kompa-spam-filter-education-update-0625",
+        "local_path": os.path.join(LOCAL_MODEL_DIR, "kompa-spam-filter-education-update-0625")
     },
 }
+
 
 from huggingface_hub import snapshot_download
 
