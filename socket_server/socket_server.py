@@ -14,7 +14,7 @@ INFER_URL = "http://0.0.0.0:8989/predict"
 
 OUTPUT_FIELDS = [
     "id", "topic", "topic_id", "title", "content", "description",
-    "sentiment", "site_name", "site_id", "type", "category", "spam", "lang"
+    "sentiment", "site_name", "site_id", "type", "category", "spam", "lang", "label", "label_id"
 ]
 
 # Global aiohttp session
@@ -87,6 +87,27 @@ async def process_item(item, text, category):
         "lang": prediction.get("lang", None),
         "category": category
     }
+
+    # call predict_ads if spam is True
+    if merged.get("spam") is True:
+        from ads_predict import predict_ads
+        try:
+            print(merged['content'])
+            is_ads = predict_ads(merged['content'])
+            print(is_ads)
+            if is_ads:
+                merged["label"] = 'Rao vặt'
+                merged["label_id"] = '68898a3c16a3634d83338269'
+                merged["sentiment"] = 'Neutral'
+            else:
+                merged["label"] = None
+                merged["label_id"] = None
+                merged["sentiment"] = None
+        except Exception as e:
+            print(f"⚠️ Error in predict_ads for item {item.get('id')}: {e}")
+            merged["is_ads"] = None
+    # print(f"✅ Processed item: {merged}")
+    
     return {k: merged.get(k, None) for k in OUTPUT_FIELDS}
 
 if __name__ == "__main__":
