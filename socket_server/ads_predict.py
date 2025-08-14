@@ -1,10 +1,6 @@
 import torch
 from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassification
-from vncorenlp import VnCoreNLP
-
-# ---------- Load once at startup ----------
-# Khởi tạo VnCoreNLP cho tách từ
-vncorenlp = VnCoreNLP("vncorenlp/VnCoreNLP-1.1.1.jar", annotators="wseg", max_heap_size='-Xmx500m')
+from underthesea import word_tokenize
 
 # Load tokenizer và model từ Hugging Face
 tokenizer = AutoTokenizer.from_pretrained("Khoa/kompa-check-ads-0725", use_fast=False)
@@ -16,8 +12,8 @@ text_classifier = pipeline("text-classification", model=model, tokenizer=tokeniz
 
 def preprocess_text(text: str) -> str:
     text = text.lower()
-    sentences = vncorenlp.tokenize(text)
-    return ' '.join([' '.join(sen) for sen in sentences])
+    tokens = word_tokenize(text)
+    return ' '.join(tokens)
 
 
 def predict_ads(text: str) -> bool:
